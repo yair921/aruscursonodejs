@@ -1,4 +1,6 @@
-// declaracion con var.
+/*
+    DECLARACIONES DE VARIABLES
+*/
 //var nombre = 'Yair';
 //let nombre = 'Juan';
 // console.log(nombre);
@@ -51,6 +53,9 @@
 // edad = 18;
 // console.log(edad);
 
+/*
+    FUNCIONES
+*/
 // function suma() {
 //     try {
 //         let suma = n1 + n2;
@@ -83,7 +88,9 @@
 
 // suma(1,4,7,'Hola');
 
-//Arrays
+/*
+    ARRAYS
+*/
 
 // push (Agrega de último)
 // unshift (Agrega de primero)
