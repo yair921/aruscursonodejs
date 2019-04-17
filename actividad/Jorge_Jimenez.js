@@ -6,7 +6,8 @@ let arreglo = [
     { indice: 4, marca: 'Chevrolet', modelo: 'Sail' },
     { indice: 2, marca: 'Renault', modelo: 'Logan' },
     { indice: 1, marca: 'Nissan', modelo: 'Versa' },
-    { indice: 3, marca: 'Toyota', modelo: 'Corolla' }
+    { indice: 3, marca: 'Toyota', modelo: 'Corolla' },
+    { indice: 5, marca: 'Ford', modelo: 'Focus' }
 ];
 
 console.log(`Ejercicio 9: Ordenar arreglo de objetos seg�n su �ndice.
@@ -29,22 +30,22 @@ console.log(arregloOrdenado);
 
 
 function ordenar(arr) {
-try{
-    let arrOrdenado = [];
-    for(i=0;i <= arr.length; i++) {
-        arr.map(function (o) {
+    try {
+        let arrOrdenado = [];
+        for (i = 0; i <= arr.length; i++) {
+            arr.map(function (o) {
 
-            let x = o.indice;
-            //console.log(i);
-            //console.log(x);
-            if (x == i) arrOrdenado.push(o);
+                let x = o.indice;
+                //console.log(i);
+                //console.log(x);
+                if (x == i) arrOrdenado.push(o);
 
-        });
-       
+            });
+
+        }
+        return arrOrdenado;
+    } catch (error) {
+
+        console.log(error);
     }
-    return arrOrdenado;
-}catch(error){
-
-    console.log(error);
-}
 }

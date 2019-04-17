@@ -1,4 +1,4 @@
-//ejercicio de factorial
+//ejercicio de factorial //
 //realizado por Carlos Alberto Villamil
 function factorialvillamil(numero){
     try {

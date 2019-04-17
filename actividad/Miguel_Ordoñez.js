@@ -103,7 +103,7 @@ function recomendacion(texto) {
     ];
 
     try {
-        if (typeof(texto) === 'string') {
+        if (typeof (texto) !== 'string') {
             console.log('La variable debe ser tipo string');
             return;
         }
@@ -117,5 +117,5 @@ function recomendacion(texto) {
         console.log(error);
     }
 }
-let texto = 1
+let texto = 'Bea'
 recomendacion(texto);

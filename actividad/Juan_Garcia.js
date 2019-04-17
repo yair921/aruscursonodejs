@@ -20,4 +20,4 @@ function categorias(texto) {
         console.log(error);
     }
 }
-categorias('Robert Stevenson');
+categorias();

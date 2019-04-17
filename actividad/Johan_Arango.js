@@ -1,11 +1,11 @@
     // Ordenar arreglo de nombre por longitud de caracteres.	
-    // Realice una función que reciba como parámetro un arreglo de string y 
-    // retorne un arreglo de Json ordenado de menor a mayor según la longitud 
+    // Realice una funciï¿½n que reciba como parï¿½metro un arreglo de string y 
+    // retorne un arreglo de Json ordenado de menor a mayor segï¿½n la longitud 
     // del nombre, y las llaves que debe contener cada json son: "texto" y "longitud".
 
-let lista = ['Delta', 'alpha', 'CHARLIE', 'bravo'];
+let lista = ['333', '11', '111', '1111'];
 
-// array temporal contiene objetos con posición y valor de ordenamiento
+// array temporal contiene objetos con posiciï¿½n y valor de ordenamiento
 let ordenamiento = lista.map(function(el, i) {
   return { index: i, value: el.toLowerCase() };
 })

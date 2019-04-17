@@ -4,7 +4,7 @@ function calcular() {
 
         const readline = require('readline-sync');
         let dato = readline.question('ingresar el dato de su peso en Kg: ');
-        //Factores gravitacionales 
+        //Factores gravitacionales //
         let validacion = parseInt(dato);
         if (isNaN(validacion)) {
             console.log("dato incorrecto")

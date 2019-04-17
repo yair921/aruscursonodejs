@@ -1,7 +1,7 @@
 function Numerosprimos() {
     try {
-        let InicioRango = 10;
-        const FinRango = 5;
+        let InicioRango = 'g';
+        const FinRango = 'e';
         let arrprimos = []
         if (FinRango > InicioRango) {
             if (InicioRango === 1)

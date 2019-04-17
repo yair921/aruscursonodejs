@@ -1,24 +1,24 @@
 function Palindromo(str) {
     try {
         var palabra = str.split("");
-        var reverse = palabra.reverse(); 
+        var reverse = palabra.reverse();
 
         var join = reverse.join("");
 
-        if (str == join){
-            resultado="es un Palindromo";
-        }else{
-            resultado="no un Palindromo";
+        if (str == join) {
+            resultado = "es un Palindromo";
+        } else {
+            resultado = "no un Palindromo";
         }
 
-        console.log(resultado);    
-        }    
-     catch (error) {
+        console.log(resultado);
+    }
+    catch (error) {
         console.log(error);
     }
 }
- 
-Palindromo("ana");
+
+Palindromo();
 
 
 /*ejercicio con for (solo me funciono para cadenas impares)*/
@@ -41,5 +41,5 @@ Palindromo("ana");
 //         console.log(error);
 //     }
 // }
- 
+
 // Palindromo("13131");

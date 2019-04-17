@@ -16,6 +16,6 @@ function factorial(x) {
     }
 }
 
-let x = 5;
+let x = '#';
 let fac = factorial(x);
 console.log(`El factorial de ${x} es: ${fac}`);

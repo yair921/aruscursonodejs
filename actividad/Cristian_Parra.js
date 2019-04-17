@@ -4,7 +4,7 @@
 
 const vkm = 300000;
 const vml = 186000;
-let Distancia = 15;
+let Distancia = 480;
 
 try {
     let dk = vkm * Distancia;

@@ -45,4 +45,4 @@ function conversorLongitudes(lngActual, lngDestino, valor) {
 }
 
 // Llamada a la función, con los valores especificados
-conversorLongitudes('pies', 'centimetros', 12.7);
+conversorLongitudes('centimetros', 'pies', 10);

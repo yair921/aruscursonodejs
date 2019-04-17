@@ -14,10 +14,10 @@ function Pares(NumMin, NumMax) {
         } catch (error) {
             console.log(error);
         }
-    }else{
+    } else {
         console.log("Por favor ingrese Valores Numericos")
     }
 }
-Pares(0, 10);
+Pares(90,100);
 //Pares(0, "10");  //---Prueba con "10"
 //Pares(0, "AB"); //---Prueba con valor no numerico
