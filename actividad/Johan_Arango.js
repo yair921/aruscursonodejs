@@ -3,7 +3,7 @@
     // retorne un arreglo de Json ordenado de menor a mayor seg�n la longitud 
     // del nombre, y las llaves que debe contener cada json son: "texto" y "longitud".
 
-let lista = ['333', '11', '111', '1111'];
+let lista = ['333', '11', '111', '1111', '88'];
 
 // array temporal contiene objetos con posici�n y valor de ordenamiento
 let ordenamiento = lista.map(function(el, i) {
