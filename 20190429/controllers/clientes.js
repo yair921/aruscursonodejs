@@ -1,5 +1,5 @@
-const fs = require('fs');
 const Model = require('../models/clientesModel');
+const Util = require('../helpers/util');
 
 class Clientes extends Model {
 
@@ -9,9 +9,7 @@ class Clientes extends Model {
 
     getAll() {
         try {
-            fs.writeFile('path/test.txt', 'aaa', function (err) { 
-                
-            });
+            throw new Error('Error en cliente!!!');
             return [
                 {
                     nombre: this.nombre,
@@ -25,7 +23,8 @@ class Clientes extends Model {
                 }
             ];
         } catch (error) {
-            fs.writeFileSync('../logError', error);
+            //fs.writeFileSync('logs/logError.txt', error);
+            Util.writeLogError(error);
         }
     }
 }

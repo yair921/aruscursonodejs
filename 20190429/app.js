@@ -1,12 +1,16 @@
 const express = require('express');
 const app = express();
+const formidable = require('express-formidable');
 const config = require('./config');
 const Clientes = require('./controllers/clientes');
+const Validacion = require('./controllers/validacion');
+
+app.use(formidable());
 
 /**
  * Funcionalidades de clientes.
  */
-app.get('/clientes/getall', (req, res) => {
+app.post('/clientes/getall', Validacion.login, (req, res) => {
     let clientes = new Clientes({
         nombre: 'Juan',
         apellido: 'Perez',
