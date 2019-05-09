@@ -10,13 +10,13 @@ app.use(formidable());
 /**
  * Funcionalidades de clientes.
  */
-app.post('/clientes/getall', Validacion.login, (req, res) => {
+app.post('/clientes/getall', Validacion.login, async (req, res) => {
     let clientes = new Clientes({
         nombre: 'Juan',
         apellido: 'Perez',
         documento: '1234'
     });
-    res.send(clientes.getAll());
+    res.send(await clientes.getAll());
 });
 app.post('/clientes/add', (req, res) => {
     res.send('Add clientes');

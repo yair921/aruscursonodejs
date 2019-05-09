@@ -1,5 +1,6 @@
 const Model = require('../models/clientesModel');
 const Util = require('../helpers/util');
+const Mysql = require('../helpers/mysql');
 
 class Clientes extends Model {
 
@@ -7,24 +8,19 @@ class Clientes extends Model {
         super(args);
     }
 
-    getAll() {
+    async getAll() {
         try {
-            throw new Error('Error en cliente!!!');
-            return [
-                {
-                    nombre: this.nombre,
-                    apellido: this.apellido,
-                    documento: this.documento
-                },
-                {
-                    nombre: this.nombre + '_2',
-                    apellido: this.apellido + '_2',
-                    documento: this.documento + '_2'
-                }
-            ];
+            //throw new Error('Error en cliente!!!');
+            let mysql = new Mysql();
+            let result = await mysql.select('SELECT * FROM CUSTOMERS');
+            return result;
         } catch (error) {
             //fs.writeFileSync('logs/logError.txt', error);
             Util.writeLogError(error);
+            return {
+                status: false,
+                message: error
+            };
         }
     }
 }
