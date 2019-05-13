@@ -12,7 +12,7 @@ class Mysql {
         connection.connect();
     }
     
-    select(query) {
+    executeQuery(query) {
         return new Promise((resolve, reject) => {
             try {
                 connection.query(query, (error, results, fields) => {

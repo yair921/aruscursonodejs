@@ -10,19 +10,23 @@ app.use(formidable());
 /**
  * Funcionalidades de clientes.
  */
-app.post('/clientes/getall', Validacion.login, async (req, res) => {
-    let clientes = new Clientes({
-        nombre: 'Juan',
-        apellido: 'Perez',
-        documento: '1234'
+app.post('/clientes/add', async (req, res) => {
+    let cliente = new Clientes({
+        documento: req.fields.documento,
+        nombre: req.fields.nombre,
+        apellido: req.fields.apellido
     });
-    res.send(await clientes.getAll());
+    res.send(await cliente.add());
 });
-app.post('/clientes/add', (req, res) => {
-    res.send('Add clientes');
+app.post('/clientes/getall', Validacion.login, async (req, res) => {
+    res.send(await Clientes.getAll());
 });
-app.put('/clientes/update', (req, res) => {
-    res.send('Update clientes');
+app.put('/clientes/update', async (req, res) => {
+    let cliente = new Clientes({
+        id: req.fields.id,
+        nombre: req.fields.nombre
+    });
+    res.send(await cliente.update());
 });
 app.delete('/clientes/delete', (req, res) => {
     res.send('Delete clientes');
