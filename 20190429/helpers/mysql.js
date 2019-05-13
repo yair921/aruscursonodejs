@@ -11,7 +11,7 @@ class Mysql {
     constructor() {
         connection.connect();
     }
-    
+
     executeQuery(query) {
         return new Promise((resolve, reject) => {
             try {
@@ -28,12 +28,14 @@ class Mysql {
                         objResponse: results
                     });
                 });
-                connection.end();
             } catch (error) {
                 Util.writeLogError(error);
                 reject(error);
             }
         });
+    }
+    endConnection() {
+        connection.end();
     }
 }
 

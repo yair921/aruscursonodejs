@@ -24,12 +24,14 @@ app.post('/clientes/getall', Validacion.login, async (req, res) => {
 app.put('/clientes/update', async (req, res) => {
     let cliente = new Clientes({
         id: req.fields.id,
-        nombre: req.fields.nombre
+        documento: req.fields.documento,
+        nombre: req.fields.nombre,
+        apellido: req.fields.apellido
     });
     res.send(await cliente.update());
 });
-app.delete('/clientes/delete', (req, res) => {
-    res.send('Delete clientes');
+app.delete('/clientes/delete', async (req, res) => {
+    res.send(await Clientes.delete(req.fields.id));
 });
 app.listen(config.port, () => {
     console.log(`Server running on port ${config.port}...`);

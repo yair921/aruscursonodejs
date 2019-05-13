@@ -10,6 +10,10 @@ class Util {
             console.log(error);
         }
     }
+
+    static isNullOrEmpty(obj) {
+        return (obj === undefined || obj === null || obj === '');
+    }
 }
 
 module.exports = Util;

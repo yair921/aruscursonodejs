@@ -12,7 +12,8 @@ class Clientes extends Model {
         try {
             //throw new Error('Error en cliente!!!');
             let mysql = new Mysql();
-            let result = await mysql.executeQuery('SELECT * FROM CUSTOMERS');
+            let result = await mysql.executeQuery('SELECT * FROM CUSTOMERS WHERE enabled=1');
+            mysql.endConnection();
             return result;
         } catch (error) {
             //fs.writeFileSync('logs/logError.txt', error);
@@ -34,6 +35,7 @@ class Clientes extends Model {
                     values
                     ('${this.documento}','${this.nombre}','${this.apellido}')
             `);
+            mysql.endConnection();
             return result;
         } catch (error) {
             Util.writeLogError(error);
@@ -44,23 +46,43 @@ class Clientes extends Model {
         }
     }
 
-    async update(){
+    async update() {
         try {
             let mysql = new Mysql();
-            // let result =
-            //     await mysql.executeQuery(`
-            //         UPDATE customers SET
-            //         document = '${this.documento}',
-            //         first_name = '${this.nombre}',
-            //         last_name = '${this.apellido}'
-            //         WHERE id = ${this.id}
-            // `);
+            let cliente =
+                await mysql.executeQuery(`
+            SELECT * FROM customers WHERE id = ${this.id}
+            `);
+            this.documento = Util.isNullOrEmpty(this.documento) ?
+                cliente.objResponse[0].document : this.documento;
+            this.nombre = Util.isNullOrEmpty(this.nombre) ?
+                cliente.objResponse[0].first_name : this.nombre;
+            this.apellido = Util.isNullOrEmpty(this.apellido) ?
+                cliente.objResponse[0].last_name : this.apellido;
             let result =
                 await mysql.executeQuery(`
                     UPDATE customers SET
-                    first_name = '${this.nombre}'
+                    document = '${this.documento}',
+                    first_name = '${this.nombre}',
+                    last_name = '${this.apellido}' 
                     WHERE id = ${this.id}
             `);
+            mysql.endConnection();
+            return result;
+        } catch (error) {
+            Util.writeLogError(error);
+            return {
+                status: false,
+                message: error
+            };
+        }
+    }
+
+    static async delete(id) {
+        try {
+            let mysql = new Mysql();
+            let result = await mysql.executeQuery(`DELETE FROM customers WHERE id=${id}`);
+            mysql.endConnection();
             return result;
         } catch (error) {
             Util.writeLogError(error);
