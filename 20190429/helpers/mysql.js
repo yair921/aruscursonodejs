@@ -9,12 +9,12 @@ const connection = mysql.createConnection({
 
 class Mysql {
     constructor() {
-        connection.connect();
     }
-
-    executeQuery(query) {
+    
+    static executeQuery(query) {
         return new Promise((resolve, reject) => {
             try {
+                //connection.connect();
                 connection.query(query, (error, results, fields) => {
                     if (error) {
                         resolve({
@@ -28,14 +28,12 @@ class Mysql {
                         objResponse: results
                     });
                 });
+                //connection.end();
             } catch (error) {
                 Util.writeLogError(error);
                 reject(error);
             }
         });
-    }
-    endConnection() {
-        connection.end();
     }
 }
 
